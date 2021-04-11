@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
-	xmlns:layout="http://www/ultraq.net.nz/thymeleaf/layout">
+<html>
 <head>
 <title>Organizador de Eventos</title>
 
@@ -20,37 +19,34 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-	
-	<h1>Cadastro de Eventos</h1>
+	<h1>Evento</h1>
 	<a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Eventos</a>
 	
 	<form class="container" action="" method="post">
 		<div class="row">
-			<div class="input-fiel col s12">
-				Nome:<input type="text" name="nome" min="3" required>
+			<div class="input-field col s6">
+				Nome Convidado: <input type="text" name="nomeConvidado">
+			</div>
+			<div class="input-field col s6">
+				RG: <input type="text" name="rg">
 			</div>
 		</div>
-		
-		<div class="row">
-			<div class="input-fiel col s12">
-				Local:<input type="text" name="local" required>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="input-fiel col s6">
-				Horario:<input type="time" min="20:44" name="horario" required>
-				<!-- Fazer um javascript para trazer a Hora e não permitir a escolha de um 
-				horario que ja passou -->
-			</div>
-			<div class="input-fiel col s6">
-				Data:<input type="date" name="data" min="2021-04-09"  required>
-				<!-- Fazer um javascript para trazer a data de hoje para que não se
-				possa escolher uma data que já passou -->
-			</div>
-		</div>
-
-		<button title="Clique para Cadastrar um Evento" class="waves-effect waves-light btn" type="submit">Salvar</button>	
+		<button type="submit">Salvar</button>
 	</form>
+	
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Nome Convidado</th>
+				<th>RG</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="convidado : ${convidados}">
+				<td><span th:text="${convidado.nomeConvidado}"></span></td>
+				<td><span th:text="${convidado.rg}"></span></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>
