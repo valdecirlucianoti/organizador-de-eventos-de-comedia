@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www/ultraq.net.nz/thymeleaf/layout">
 <head>
 <title>Organizador de Eventos</title>
 
@@ -22,6 +23,13 @@
 	<h1>Evento</h1>
 	<a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Eventos</a>
 	
+	<div class="container" th:each="evento : ${evento}">
+		<p> <span th:text="${evento.nome}"></span></p>
+		<p> <span th:text="${evento.local}"></span></p>
+		<p> <span th:text="${evento.data}"></span></p>
+		<p> <span th:text="${evento.horario}"></span></p>
+	</div>
+	
 	<form class="container" action="" method="post">
 		<div class="row">
 			<div class="input-field col s6">
@@ -33,7 +41,6 @@
 		</div>
 		<button type="submit">Salvar</button>
 	</form>
-	
 	<table class="container">
 		<thead>
 			<tr>
