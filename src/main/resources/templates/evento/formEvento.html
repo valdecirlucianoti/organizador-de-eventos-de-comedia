@@ -6,37 +6,61 @@
 
 <link rel="icon" href="" type="image/x-icon">
 
-	<meta charset="UTF-8">
-	<!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
- 	<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	
+<style type="text/css">
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+</style>
+
 </head>
 <body>
-	
-	<h1>Cadastro de Eventos</h1>
-	<a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Eventos</a>
-	
+	<header>
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Cadastro de Eventos</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/cadastrarEvento">Cadastrar Eventos</a></li>
+					<li><a href="/listarEventos">Listar Eventos</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
 	<form class="container" action="" method="post">
 		<div class="row">
 			<div class="input-fiel col s12">
 				Nome:<input type="text" name="nome" min="3" required>
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="input-fiel col s12">
 				Local:<input type="text" name="local" required>
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="input-fiel col s6">
 				Horario:<input type="time" min="20:44" name="horario" required>
@@ -44,13 +68,120 @@
 				horario que ja passou -->
 			</div>
 			<div class="input-fiel col s6">
-				Data:<input type="date" name="data" min="2021-04-09"  required>
+				Data:<input type="date" name="data" min="2021-04-09" required>
 				<!-- Fazer um javascript para trazer a data de hoje para que não se
 				possa escolher uma data que já passou -->
 			</div>
 		</div>
 
-		<button title="Clique para Cadastrar um Evento" class="waves-effect waves-light btn" type="submit">Salvar</button>	
+		<div class="row">
+			<button title="Clique para Cadastrar um Evento"
+				class="waves-effect waves-light btn" type="submit">Salvar</button>
+			<button title="Clique para limpar o fomulário de cadastro"
+				class="waves-effect waves-light btn" type="reset">limpar</button>
+		</div>
 	</form>
+
+	<footer class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Footer Content</h5>
+					<p class="grey-text text-lighten-4">Aplicação web, gerenciadora
+						de eventos</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3"
+							href="https://github.com/valdecirlucianoti">Github</a></li>
+						<li><a class="grey-text text-lighten-3"
+							href="https://www.linkedin.com/in/valdecir-luciano-da-silva-4b137010a/">linkedin</a></li>
+						<li><a class="grey-text text-lighten-3"
+							href="https://www.instagram.com/valdecirluciano_85/">Instagen</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2014 Copyright valdecir Luciano da Silva <a
+					class="grey-text text-lighten-4 right" href="#!">Potfólio</a>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>
+
+
+
+
+
+
+
+<div class="parallax-container">
+	<div class="parallax">
+		<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="ssss">
+	</div>
+</div>
+
+<div class="section white">
+	<div class="row container">
+		<h2 class="header">Parallax</h2>
+		<p class="grey-text text-darken-3 lighten-3">Parallax is an
+			effect where the background content or image in this case, is moved
+			at a different speed than the foreground content while scrolling.</p>
+	</div>
+</div>
+
+<main>
+	<article>
+		<div class="row">
+			
+		</div>
+	</article>
+</main>
+
+<div class="parallax-container">
+	<div class="parallax">
+		<img src="" alt="">
+	</div>
+</div>
+
+<!-- área de indormações -->
+<section>
+	<article>
+		<div id="informações-direita">
+			<figure>
+				<img src="https://image.freepik.com/vetores-gratis/sinal-de-neon-de-show-de-comedia-microfone-com-moldura-retangular-no-fundo-da-parede-de-tijolo_1262-10895.jpg">
+			</figure>
+		</div>
+		
+		<div id="informações-esquerda"> 
+			<aside>
+				<p> FAZENDO SORRIR DESDE 2005</p>
+				<p>
+					Sou um parágrafo. Clique aqui para editar e adicionar o seu próprio texto. É fácil! Basta clicar em "Editar Texto" ou clicar duas vezes sobre mim e você poderá adicionar o seu próprio conteúdo e trocar fontes. Sou um ótimo lugar para você contar sua história. 
+				</p>
+			</aside>
+		</div>
+	</article> 
+</section>
+
+<section>
+	<article>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</article>
+</section>
+
+<section>
+	<article>
+		<a href="/Eventos"><button class="waves-effect waves-light btn">
+				Ver mais Eventos</button></a>
+	</article>
+</section>
+
+

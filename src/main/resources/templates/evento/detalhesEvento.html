@@ -18,31 +18,61 @@
     
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style type="text/css">
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+</style>
 </head>
 <body>
-	<h1>Evento</h1>
-	<a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Eventos</a>
-	
-	<div class="container" th:each="evento : ${evento}">
+	<header>
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Organizador de Eventos</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/cadastrarEvento">Cadastrar Eventos</a></li>
+					<li><a href="/listarEventos">Listar Eventos</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	 
+	<div class="container" th:each="evento : ${evento}"> 
 		<p> <span th:text="${evento.nome}"></span></p>
 		<p> <span th:text="${evento.local}"></span></p>
 		<p> <span th:text="${evento.data}"></span></p>
 		<p> <span th:text="${evento.horario}"></span></p>
 	</div>
 	
+	<!-- Vai exibir a mensagem de feedbeak para o usuario caso sucesso e caso falha -->
+	<th:block th:include="mensagemValidação"></th:block>
+	
 	<form class="container" action="" method="post">
 		<div class="row">
 			<div class="input-field col s6">
-				Nome Convidado: <input type="text" name="nomeConvidado">
+				Nome Convidado: <input type="text" name="nomeConvidado" required min="3">
 			</div>
 			<div class="input-field col s6">
-				RG: <input type="text" name="rg">
+				RG: <input type="text" name="rg" required>
 			</div>
 		</div>
-		<button type="submit">Salvar</button>
+		<div class="row">
+			<button title="Clique para Cadastrar um Participante para este evento" class="waves-effect waves-light btn" type="submit">Salvar</button>
+			<button title="Clique para limpar o formulário de cadastro" class="waves-effect waves-light btn" type="reset">limpar</button>
+		</div>
 	</form>
 	<table class="container">
 		<thead>
+			<tr>
+				<th style="text-align: center" colspan="2">Lista de Convidados</th>
+			</tr>
 			<tr>
 				<th>Nome Convidado</th>
 				<th>RG</th>
@@ -54,6 +84,40 @@
 				<td><span th:text="${convidado.rg}"></span></td>
 			</tr>
 		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2" style="text-align: center">&copy; Todos os direitos reservados</td>
+			</tr>
+			</tfoot>
 	</table>
+	
+	<footer class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Footer Content</h5>
+					<p class="grey-text text-lighten-4">Aplicação web, gerenciadora
+						de eventos</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3"
+							href="https://github.com/valdecirlucianoti">Github</a></li>
+						<li><a class="grey-text text-lighten-3"
+							href="https://www.linkedin.com/in/valdecir-luciano-da-silva-4b137010a/">linkedin</a></li>
+						<li><a class="grey-text text-lighten-3"
+							href="https://www.instagram.com/valdecirluciano_85/">Instagen</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2014 Copyright valdecir Luciano da Silva <a
+					class="grey-text text-lighten-4 right" href="#!">Potfólio</a>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>

@@ -1,52 +1,125 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www/ultraq.net.nz/thymeleaf/layout">
+
 <head>
 <title>Organizador de Eventos</title>
 
-<link rel="icon" href="" type="image/x-icon">
 
-	<meta charset="UTF-8">
-	<!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
- 	<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="../_css/style.css">
 </head>
+
 <body>
-	<h1>Lista de Eventos</h1>
-	<a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Evento</a>
+	<header>
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Lista de Eventos</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/cadastrarEvento">Cadastrar Eventos</a></li>
+					<li><a href="/listarEventos">Listar Eventos</a></li>
+					<li><a href="/Eventos">Eventos</a></li>
+					<li><a href="/Contato">Contato</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Imagem header inicial-->
+	<section>
+		<figure>
+			<img src="../imagens/imagem-header-01.jpg">
+		</figure>
+	</section>
+
+	<!-- Sesão de conteudo principal Eventos e opção de compra de ingressos-->
+	<main>
+		<article class="section white">
+			<div class="row container">
+				<h2 class="header">Eventos</h2>
+				<table class="container highlight">
+					<tbody>
+						<tr title="Tabela de eventos" th:each="evento : ${eventos}">
+							<td title="Nome do Evento"><a
+								th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}"><span
+									th:text="${evento.nome}"></span></a></td>
+							<td title="Local onde o evento se realizara"><span
+								th:text="${evento.local}"></span></td>
+							<td title="Data que o evento se realizara"><span
+								th:text="${evento.data}"></span></td>
+							<td title="horario que o evento irá iniciar"><span
+								th:text="${evento.horario}"></span></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4" style="text-align: center">&copy; Todos os
+								direitos reservados</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</article>
+	</main>
 	
-		<div class="row">
-		<table class="container">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Local</th>
-					<th>Data</th>
-					<th>Horario</th>
-				</tr>
-			</thead> 
-			<tbody>
-				<tr title="Tabela de eventos" th:each="evento : ${eventos}">
-					<td title="Nome do Evento"><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}"><span th:text="${evento.nome}"></span></a></td>
-					<td title="Local onde o evento se realizara"><span th:text="${evento.local}"></span></td>
-					<td title="Data que o evento se realizara"><span th:text="${evento.data}"></span></td>
-					<td title="horario que o evento irá iniciar"><span th:text="${evento.horario}"></span></td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="4" style="text-align: center">&copy; Todos os direitos reservados</td>
-				</tr>
-			</tfoot>
-		</table>
+	<section>
+		<figure>
+			<img width="100%" src="../imagens/imagem-header-02.jpg">
+		</figure>
+	</section>
+	<div class="section white">
+		<div class="row container">
+			<h2 class="header">Informações</h2>
+			<p class="grey-text text-darken-3 lighten-3">Lista todos os
+				eventos</p>
 		</div>
+
+	<br>
+	<footer class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Footer Content</h5>
+					<p class="grey-text text-lighten-4">Aplicação web, gerenciadora
+						de eventos</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3"
+							href="https://github.com/valdecirlucianoti">Github</a></li>
+						<li><a class="grey-text text-lighten-3"
+							href="https://www.linkedin.com/in/valdecir-luciano-da-silva-4b137010a/">linkedin</a>
+						</li>
+						<li><a class="grey-text text-lighten-3"
+							href="https://www.instagram.com/valdecirluciano_85/">Instagen</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2014 Copyright valdecir Luciano da Silva <a
+					class="grey-text text-lighten-4 right" href="#!">Potfólio</a>
+			</div>
+		</div>
+	</footer>
+
 </body>
+
 </html>
