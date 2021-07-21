@@ -1,125 +1,222 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
-	xmlns:layout="http://www/ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www/ultraq.net.nz/thymeleaf/layout">
 
 <head>
-<title>Organizador de Eventos</title>
+	<title>Ecomerce de Eventos</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="application-name" content="Valdecir ViagensNacionais">
+    <meta name="author" content="Valdecir Luciano da silva">
+    <meta name="disponível" content="Este projeto tem como objetivo demostrar habilidades no desenvolvimento de web sites com a linguagem de hypertexto HTML5.">
+    <meta name="generator" content="Visual Studios Code">
+    <meta name="keywords" content="HTML5, CSS3, SASS, GIT, Thymeleaf, JavaEE8, Spring Boot, Spring Data, Postgresql, Maven, JPA">
 
+	
+	<link rel="author" href="https://www.linkedin.com/in/valdecir-luciano-da-silva-4b137010a/">
+    <link rel="icon" href="../imagens/icons8-ticket-booth-96.png" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../css/style.min.css">
 
-<meta charset="UTF-8">
-<!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-<!-- Compiled and minified JavaScript -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-<!--Import Google Icon Font-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-
-<link rel="stylesheet" type="text/css" href="../_css/style.css">
+	<script defer src="../_javascript/script.js"></script>
 </head>
 
 <body>
+
+	<!--Menu de navegação principal-->
 	<header>
-		<nav>
-			<div class="nav-wrapper">
-				<a href="#" class="brand-logo">Lista de Eventos</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="/cadastrarEvento">Cadastrar Eventos</a></li>
-					<li><a href="/listarEventos">Listar Eventos</a></li>
-					<li><a href="/Eventos">Eventos</a></li>
-					<li><a href="/Contato">Contato</a></li>
-				</ul>
-			</div>
+		<input type="checkbox" id="checkbox">
+		<label id="botao-menu" for="checkbox">&#9776;</label>
+		<nav id="menu-superior">
+			<h1>ComediCenter</h1>
+			<ul id="menu">
+				<li><a class="item-menu" href="/cadastrarEvento">Cadastrar Eventos</a></li>
+				<li><a class="item-menu" href="/listarEventos">Listar Eventos</a></li>
+				<li><a class="item-menu" href="/Eventos">Informações</a></li>
+				<li><a class="item-menu" href="/Eventos">Eventos</a></li>
+				<li><a class="item-menu" href="/Contato">Contato</a></li>
+			</ul>
 		</nav>
 	</header>
 
-	<!-- Imagem header inicial-->
-	<section>
-		<figure>
-			<img src="../imagens/imagem-header-01.jpg">
-		</figure>
+	<!-- Imagem principal-->
+	<section id="galeria">
+		<div class="slideshow-container">
+			<div class="mySlides fade">
+				<div class="numbertext">1 / 3</div>
+				<img src="https://picsum.photos/800/500">
+				<div class="text">Caption Text</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">2 / 3</div>
+				<img src="https://picsum.photos/800/500">
+				<div class="text">Caption Two</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">3 / 3</div>
+				<img src="https://picsum.photos/800/500">
+				<div class="text">Caption Three</div>
+			</div>
+
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
+		<br>
+
+		<div style="text-align:center">
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+		</div>
 	</section>
 
 	<!-- Sesão de conteudo principal Eventos e opção de compra de ingressos-->
-	<main>
-		<article class="section white">
-			<div class="row container">
-				<h2 class="header">Eventos</h2>
-				<table class="container highlight">
-					<tbody>
-						<tr title="Tabela de eventos" th:each="evento : ${eventos}">
-							<td title="Nome do Evento"><a
-								th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}"><span
-									th:text="${evento.nome}"></span></a></td>
-							<td title="Local onde o evento se realizara"><span
-								th:text="${evento.local}"></span></td>
-							<td title="Data que o evento se realizara"><span
-								th:text="${evento.data}"></span></td>
-							<td title="horario que o evento irá iniciar"><span
-								th:text="${evento.horario}"></span></td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr>
-							<td colspan="4" style="text-align: center">&copy; Todos os
-								direitos reservados</td>
-						</tr>
-					</tfoot>
-				</table>
-			</div>
+	<main class="sessoes">
+		<aside>
+			<img src="../imagens/proximos-shows.png" alt="proximo show">
+			<img src="../imagens/quem-vira-em-breve.png" alt="">
+			<img src="../imagens/lol-lol.png" alt="">
+		</aside>
+
+		<article>
+			<h2 class="header">Eventos</h2>
+			<table>
+				<tbody>
+					<tr title="Tabela de eventos" th:each="evento : ${eventos}">
+						<td title="Nome do Evento">
+							<a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
+								<span th:text="${evento.nome}"></span>
+							</a>
+						</td>
+						<td title="Local onde o evento se realizara"><span th:text="${evento.local}"></span>
+						</td>
+						<td title="Data que o evento se realizara"><span th:text="${evento.data}"></span></td>
+						<td title="horario que o evento irá iniciar"><span th:text="${evento.horario}"></span>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4" style="text-align: center">&copy; Todos os
+							direitos reservados</td>
+					</tr>
+				</tfoot>
+			</table>
 		</article>
 	</main>
-	
-	<section>
-		<figure>
-			<img width="100%" src="../imagens/imagem-header-02.jpg">
-		</figure>
+
+	<!--Sessão de Slides dos eventos-->
+	<section id="galeria">
+		<div class="slideshow-container">
+			<div class="mySlides-2 fade">
+				<div class="numbertext">1 / 3</div>
+				<img src="https://picsum.photos/800/500">
+				<div class="text">Caption Text</div>
+			</div>
+
+			<div class="mySlides-2 fade">
+				<div class="numbertext">2 / 3</div>
+				<img src="https://picsum.photos/800/500">
+				<div class="text">Caption Two</div>
+			</div>
+
+			<div class="mySlides-2 fade">
+				<div class="numbertext">3 / 3</div>
+				<img src="https://picsum.photos/800/500">
+				<div class="text">Caption Three</div>
+			</div>
+
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
+		<br>
+
+		<div style="text-align:center">
+			<span class="dot-2" onclick="currentSlide(1)"></span>
+			<span class="dot-2" onclick="currentSlide(2)"></span>
+			<span class="dot-2" onclick="currentSlide(3)"></span>
+		</div>
 	</section>
-	<div class="section white">
-		<div class="row container">
-			<h2 class="header">Informações</h2>
-			<p class="grey-text text-darken-3 lighten-3">Lista todos os
-				eventos</p>
+
+	<!--Sessão de informações-->
+	<section class="sessoes" id="sessao-info">
+		<figure>
+			<img src="https://picsum.photos/800/500">
+		</figure>
+		<article>
+			<img src="../imagens/logo-fazendo-rir.png" alt="logo">
+			<h2>Fazendo rir des de 2021</h2>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit sit harum velit consectetur neque
+				eligendi amet, laborum enim, aspernatur cum esse ea accusantium labore. Reprehenderit ratione placeat
+				non. Non, blanditiis.</p>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit sit harum velit consectetur neque
+				eligendi amet, laborum enim, aspernatur cum esse ea accusantium labore. Reprehenderit ratione placeat
+				non. Non, blanditiis.
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit sit harum velit consectetur neque
+				eligendi amet, laborum enim, aspernatur cum esse ea accusantium labore. Reprehenderit ratione placeat
+				non. Non, blanditiis.</p>
+				
+		</article>
+	</section>
+
+	<!--Sessão de inportantes-->
+	<section class="sessoes" id="sessao-importante">
+		<div id="conteiner-blocos">
+			<div class="bloco">
+
+				<img src="../imagens/imagem-info-01.png" alt="">
+				<h5>CONSUMAÇÃO MÍNIMA</h5>
+				<p>Em todos os eventos existira informações diretas sobre consumação, se permitida...</p>
+			</div>
+			<div class="bloco">
+
+				<img src="../imagens/imagem-info-02.png" alt="">
+				<h5>MESAS VIP</h5>
+				<p>Em todos os eventos existira informações diretas sobre consumação, se permitida...</p>
+			</div>
+			<div class="bloco">
+
+				<img src="../imagens/imagem-info-03.png" alt="">
+				<h5>ONDE ESTACIONAR</h5>
+				<p>Em todos os eventos existira informações diretas sobre consumação, se permitida...</p>
+			</div>
+			<div class="bloco">
+
+				<img src="../imagens/imagem-info-04.png" alt="">
+				<h5>COUVERT ARTÍSTICO</h5>
+				<p>Em todos os eventos existira informações diretas sobre consumação, se permitida...</p>
+			</div>
 		</div>
 
-	<br>
-	<footer class="page-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col l6 s12">
-					<h5 class="white-text">Footer Content</h5>
-					<p class="grey-text text-lighten-4">Aplicação web, gerenciadora
-						de eventos</p>
-				</div>
-				<div class="col l4 offset-l2 s12">
-					<h5 class="white-text">Links</h5>
-					<ul>
-						<li><a class="grey-text text-lighten-3"
-							href="https://github.com/valdecirlucianoti">Github</a></li>
-						<li><a class="grey-text text-lighten-3"
-							href="https://www.linkedin.com/in/valdecir-luciano-da-silva-4b137010a/">linkedin</a>
-						</li>
-						<li><a class="grey-text text-lighten-3"
-							href="https://www.instagram.com/valdecirluciano_85/">Instagen</a></li>
-					</ul>
-				</div>
+		<div id="botao">
+			<a href="#">VER MAIS EVENTOS</a>
+		</div>
+	</section>
+
+	<footer>
+		<div id="container-footer">
+			<div id="contato">
+				<h2 class="sub-titulo">Contate-nos</h2>
+				<p>Ligue para o valdecir (11) 94934-0360</p>
+				<p>Escreva-nos uma E-mail: valdecirlucianoti@gmail.com</p>
+				<p>Av. Bernardino de Campos, 98</p>
+				<p>São Paulo - SP 12345-678</p>
+			</div>
+			<div id="links">
+				<h2 class="sub-titulo">Links</h2>
+				<ul>
+					<li><a class="" href="#!">Facebook</a></li>
+					<li><a class="" href="#!">Instagran</a></li>
+					<li><a class="" href="#!">Github</a></li>
+					<li><a class="" href="#!">Linkedin</a></li>
+				</ul>
 			</div>
 		</div>
-		<div class="footer-copyright">
-			<div class="container">
-				© 2014 Copyright valdecir Luciano da Silva <a
-					class="grey-text text-lighten-4 right" href="#!">Potfólio</a>
-			</div>
+		<div id="copy">
+			© 2021 Todos os direitos reservados
+			<a href="#!">Documentação</a>
 		</div>
 	</footer>
-
 </body>
 
 </html>

@@ -6,20 +6,23 @@
 
 <link rel="icon" href="" type="image/x-icon">
 
-	<meta charset="UTF-8">
-	<!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
- 	<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <style type="text/css">
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<style type="text/css">
 body {
 	display: flex;
 	min-height: 100vh;
@@ -43,29 +46,41 @@ main {
 			</div>
 		</nav>
 	</header>
-	 
-	<div class="container" th:each="evento : ${evento}"> 
-		<p> <span th:text="${evento.nome}"></span></p>
-		<p> <span th:text="${evento.local}"></span></p>
-		<p> <span th:text="${evento.data}"></span></p>
-		<p> <span th:text="${evento.horario}"></span></p>
+
+	<div class="container" th:each="evento : ${evento}">
+		<p>
+			<span th:text="${evento.nome}"></span>
+		</p>
+		<p>
+			<span th:text="${evento.local}"></span>
+		</p>
+		<p>
+			<span th:text="${evento.data}"></span>
+		</p>
+		<p>
+			<span th:text="${evento.horario}"></span>
+		</p>
 	</div>
-	
+
 	<!-- Vai exibir a mensagem de feedbeak para o usuario caso sucesso e caso falha -->
-	<th:block th:include="mensagemValidação"></th:block>
 	
+
 	<form class="container" action="" method="post">
 		<div class="row">
 			<div class="input-field col s6">
-				Nome Convidado: <input type="text" name="nomeConvidado" required min="3">
+				Nome Convidado: <input type="text" name="nomeConvidado" required
+					min="3">
 			</div>
 			<div class="input-field col s6">
 				RG: <input type="text" name="rg" required>
 			</div>
 		</div>
 		<div class="row">
-			<button title="Clique para Cadastrar um Participante para este evento" class="waves-effect waves-light btn" type="submit">Salvar</button>
-			<button title="Clique para limpar o formulário de cadastro" class="waves-effect waves-light btn" type="reset">limpar</button>
+			<button
+				title="Clique para Cadastrar um Participante para este evento"
+				class="waves-effect waves-light btn" type="submit">Salvar</button>
+			<button title="Clique para limpar o formulário de cadastro"
+				class="waves-effect waves-light btn" type="reset">limpar</button>
 		</div>
 	</form>
 	<table class="container">
@@ -86,38 +101,10 @@ main {
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="2" style="text-align: center">&copy; Todos os direitos reservados</td>
+				<td colspan="2" style="text-align: center">&copy; Todos os
+					direitos reservados</td>
 			</tr>
-			</tfoot>
+		</tfoot>
 	</table>
-	
-	<footer class="page-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col l6 s12">
-					<h5 class="white-text">Footer Content</h5>
-					<p class="grey-text text-lighten-4">Aplicação web, gerenciadora
-						de eventos</p>
-				</div>
-				<div class="col l4 offset-l2 s12">
-					<h5 class="white-text">Links</h5>
-					<ul>
-						<li><a class="grey-text text-lighten-3"
-							href="https://github.com/valdecirlucianoti">Github</a></li>
-						<li><a class="grey-text text-lighten-3"
-							href="https://www.linkedin.com/in/valdecir-luciano-da-silva-4b137010a/">linkedin</a></li>
-						<li><a class="grey-text text-lighten-3"
-							href="https://www.instagram.com/valdecirluciano_85/">Instagen</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="footer-copyright">
-			<div class="container">
-				© 2014 Copyright valdecir Luciano da Silva <a
-					class="grey-text text-lighten-4 right" href="#!">Potfólio</a>
-			</div>
-		</div>
-	</footer>
 </body>
 </html>

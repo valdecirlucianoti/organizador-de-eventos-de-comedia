@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www/ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title>Ecomerce de Eventos</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="application-name" content="Valdecir ViagensNacionais">
+    <meta name="author" content="Valdecir Luciano da silva">
+    <meta name="disponível" content="Este projeto tem como objetivo demostrar habilidades no desenvolvimento de web sites com a linguagem de hypertexto HTML5.">
+    <meta name="generator" content="Visual Studios Code">
+    <meta name="keywords" content="HTML5, CSS3, SASS, GIT, Thymeleaf, JavaEE8, Spring Boot, Spring Data, Postgresql, Maven, JPA">
+
+	
+	<link rel="author" href="https://www.linkedin.com/in/valdecir-luciano-da-silva-4b137010a/">
+    <link rel="icon" href="../imagens/icons8-ticket-booth-96.png" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../css/style.min.css">
+
+	<script defer src="../_javascript/script.js"></script>
+</head>
+
+<body>
+
+	<!--Menu de navegação principal-->
+	<header>
+		<input type="checkbox" id="checkbox">
+		<label id="botao-menu" for="checkbox">&#9776;</label>
+		<nav id="menu-superior">
+			<h1>ComediCenter</h1>
+			<ul id="menu">
+				<li><a class="item-menu" href="/cadastrarEvento">Cadastrar Eventos</a></li>
+				<li><a class="item-menu" href="/listarEventos">Listar Eventos</a></li>
+				<li><a class="item-menu" href="/informacoes">Informações</a></li>
+				<li><a class="item-menu" href="/Eventos">Eventos</a></li>
+				<li><a class="item-menu" href="/Contato">Contato</a></li>
+			</ul>
+		</nav>
+	</header>
+
+
+	<!-- Sesão de conteudo principal Eventos e opção de compra de ingressos-->
+	<main class="sessoes">
+		<article>
+			<h2 class="header">Eventos</h2>
+			<table>
+				<tbody>
+					<tr title="Tabela de eventos" th:each="evento : ${eventos}">
+						<td title="Nome do Evento">
+							<a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
+								<span th:text="${evento.nome}"></span>
+							</a>
+						</td>
+						<td title="Local onde o evento se realizara"><span th:text="${evento.local}"></span>
+						</td>
+						<td title="Data que o evento se realizara"><span th:text="${evento.data}"></span></td>
+						<td title="horario que o evento irá iniciar"><span th:text="${evento.horario}"></span>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4" style="text-align: center">&copy; Todos os
+							direitos reservados</td>
+					</tr>
+				</tfoot>
+			</table>
+		</article>
+	</main>
+
+	<!--Sessão de informações-->
+	<section class="sessoes" id="">
+		
+	</section>
+
+	<!--Sessão de inportantes-->
+	<section class="sessoes" id="">
+		
+	</section>
+
+	<footer>
+		<div id="container-footer">
+			<div id="contato">
+				<h2 class="sub-titulo">Contate-nos</h2>
+				<p>Ligue para o valdecir (11) 94934-0360</p>
+				<p>Escreva-nos uma E-mail: valdecirlucianoti@gmail.com</p>
+				<p>Av. Bernardino de Campos, 98</p>
+				<p>São Paulo - SP 12345-678</p>
+			</div>
+			<div id="links">
+				<h2 class="sub-titulo">Links</h2>
+				<ul>
+					<li><a class="" href="#!">Facebook</a></li>
+					<li><a class="" href="#!">Instagran</a></li>
+					<li><a class="" href="#!">Github</a></li>
+					<li><a class="" href="#!">Linkedin</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="copy">
+			© 2021 Todos os direitos reservados
+			<a href="#!">Documentação</a>
+		</div>
+	</footer>
+</body>
+
+</html>
