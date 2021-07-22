@@ -232,6 +232,20 @@ main aside {
   justify-content: space-between;
   align-items: center;
 }
+main aside .container-img {
+  border: 1px solid;
+  width: 100%;
+  height: 50%;
+}
+main aside .container-img img {
+  width: 100%;
+  height: 100%;
+}
+main aside .container-detalhes {
+  border: 1px solid;
+  width: 100%;
+  height: 48%;
+}
 main article {
   width: 60%;
   height: 90%;
